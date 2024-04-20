@@ -149,9 +149,9 @@ body.active {
 }
 
 /* === HEADER STYLES === */
-/* .header .input-wrapper {
+.header .input-wrapper {
   display: none;
-} */
+}
 
 .header {
   position: absolute;
