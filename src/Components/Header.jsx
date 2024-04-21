@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
-import { MdAccountBox } from 'react-icons/md';
+import { IoPersonOutline } from 'react-icons/io5';
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { IoCartOutline } from 'react-icons/io5';
 import { FiMenu } from 'react-icons/fi';
@@ -27,7 +27,7 @@ function Header() {
 
         <div className="header-action">
           <button className="header-action-btn" aria-label="user">
-            <MdAccountBox className="icon" aria-hidden="true" />
+            <IoPersonOutline className="icon" aria-hidden="true" />
           </button>
 
           <button className="header-action-btn" aria-label="favorite list">
