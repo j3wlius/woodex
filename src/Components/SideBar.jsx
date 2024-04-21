@@ -1,12 +1,12 @@
 import React from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
-import { PiFacebookLogoDuotone } from 'react-icons/pi';
+import { ImFacebook } from "react-icons/im";
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaTumblr } from 'react-icons/fa';
 
 function SideBar() {
   return (
-    <div className="sidebar active" data-navbar>
+    <div className="sidebar" data-navbar>
 
       <button className="nav-close-btn">
         <IoCloseOutline className="icon" />
@@ -120,7 +120,7 @@ function SideBar() {
         <ul className="social-list">
           <li>
             <a href="#" className="social-link">
-              <PiFacebookLogoDuotone className="icon" />
+              <ImFacebook className="icon" />
             </a>
           </li>
 

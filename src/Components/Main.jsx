@@ -8,13 +8,13 @@ import NewsLetter from './NewsLetter'
 
 function Main() {
   return (
-    <div>
+    <article>
       <Hero/>
       <About/>
       <Products/>
       <Blog/>
       <NewsLetter/>
-    </div>
+    </article>
   )
 }
 
