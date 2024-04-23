@@ -1,66 +1,109 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 // ICONS
-import { IoAddOutline } from "react-icons/io5";
-import { IoBagHandleOutline } from "react-icons/io5";
-import { IoHeartOutline } from "react-icons/io5";
+import { IoAddOutline } from 'react-icons/io5';
+import { IoBagHandleOutline } from 'react-icons/io5';
+import { IoHeartOutline } from 'react-icons/io5';
 
 // IMAGES
-import productOne from '../images/product-1.jpg'
-import productTwo from '../images/product-2.jpg'
-import productThree from '../images/product-3.jpg'
-import productFour from '../images/product-4.jpg'
-import productFive from '../images/product-5.jpg'
-import productSix from '../images/product-6.jpg'
-import productSeven from '../images/product-7.jpg'
-import productEight from '../images/product-8.jpg'
-import productNine from '../images/product-9.jpg'
-import productTen from '../images/product-10.jpg'
-import productEleven from '../images/product-11.jpg'
-import productTwelve from '../images/product-12.jpg'
-import productThirteen from '../images/product-13.jpg'
-import productForteen from '../images/product-14.jpg'
-import productFifteen from '../images/product-15.jpg'
-import productSixteen from '../images/product-16.jpg'
-import productSeventeen from '../images/product-17.jpg'
-import productEighteen from '../images/product-18.jpg'
-import productNineteen from '../images/product-19.jpg'
+import productOne from '../images/product-1.jpg';
+import productTwo from '../images/product-2.jpg';
+import productThree from '../images/product-3.jpg';
+import productFour from '../images/product-4.jpg';
+import productFive from '../images/product-5.jpg';
+import productSix from '../images/product-6.jpg';
+import productSeven from '../images/product-7.jpg';
+import productEight from '../images/product-8.jpg';
+import productNine from '../images/product-9.jpg';
+import productTen from '../images/product-10.jpg';
+import productEleven from '../images/product-11.jpg';
+import productTwelve from '../images/product-12.jpg';
+import productThirteen from '../images/product-13.jpg';
+import productForteen from '../images/product-14.jpg';
+import productFifteen from '../images/product-15.jpg';
+import productSixteen from '../images/product-16.jpg';
+import productSeventeen from '../images/product-17.jpg';
+import productEighteen from '../images/product-18.jpg';
+import productNineteen from '../images/product-19.jpg';
 
 function Products() {
+  const filterBoxRef = useRef(null); // Ref to access the filterBox element
+  const gridDisplayRef = useRef(null);
+
+  const filter = (event) => {
+    const clickedButton = event.currentTarget;
+
+    // Find the previous active button (if any)
+    const prevActiveButton = document.querySelector('.filter-btn.active');
+
+    if (prevActiveButton) {
+      prevActiveButton.classList.remove('active');
+    }
+
+    clickedButton.classList.add('active');
+
+    if (filterBoxRef.current) {
+      gridDisplayRef.current.setAttribute(
+        'data-filter',
+        clickedButton.dataset.filterBtn
+      );
+    }
+  };
+
   return (
     <section className="sectiion product" id="product" aria-label="product">
       <div className="container">
         <div className="title-wrapper">
           <h2 className="h2 section-title">Popular Products</h2>
 
-          <ul className="filter-btn-list">
+          <ul ref={filterBoxRef} className="filter-btn-list">
             <li className="filter-btn-item">
-              <button className="filter-btn active" data-filter-btn="all">
+              <button
+                className="filter-btn active"
+                onClick={filter}
+                data-filter-btn="all"
+              >
                 All Products
               </button>
             </li>
 
             <li className="filter-btn-item">
-              <button className="filter-btn" data-filter-btn="accessory">
+              <button
+                className="filter-btn"
+                data-filter-btn="accessory"
+                onClick={filter}
+              >
                 Accessory
               </button>
             </li>
 
             <li className="filter-btn-item">
-              <button className="filter-btn" data-filter-btn="decoration">
+              <button
+                className="filter-btn"
+                onClick={filter}
+                data-filter-btn="decoration"
+              >
                 Decoration
               </button>
             </li>
 
             <li className="filter-btn-item">
-              <button className="filter-btn" data-filter-btn="furniture">
+              <button
+                className="filter-btn"
+                onClick={filter}
+                data-filter-btn="furniture"
+              >
                 Furniture
               </button>
             </li>
           </ul>
         </div>
 
-        <ul className="grid-list product-list" data-filter="all">
+        <ul
+          className="grid-list product-list"
+          ref={gridDisplayRef}
+          data-filter="all"
+        >
           <li className="decoration">
             <div className="product-card">
               <a
@@ -84,7 +127,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -94,7 +137,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -104,7 +147,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -161,7 +204,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -171,7 +214,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -181,7 +224,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -228,7 +271,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -238,7 +281,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -248,7 +291,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -293,7 +336,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -303,7 +346,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -313,7 +356,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -358,7 +401,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -368,7 +411,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -378,7 +421,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -423,7 +466,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -433,7 +476,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -443,7 +486,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -488,7 +531,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -498,7 +541,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -508,7 +551,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -535,7 +578,7 @@ function Products() {
               <a
                 href="#"
                 className="card-banner img-holder has-before"
-                style={{ "--width": 300, "--height": 300 }}
+                style={{ '--width': 300, '--height': 300 }}
               >
                 <img
                   src={productEight}
@@ -553,7 +596,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -563,7 +606,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -573,7 +616,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -618,7 +661,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -628,7 +671,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -638,7 +681,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -683,7 +726,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -693,7 +736,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -703,7 +746,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -748,7 +791,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -758,7 +801,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -768,7 +811,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -813,7 +856,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -823,7 +866,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -833,7 +876,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -878,7 +921,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -888,7 +931,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -898,7 +941,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -943,7 +986,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -953,7 +996,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -963,7 +1006,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -1008,7 +1051,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1018,7 +1061,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1028,7 +1071,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -1073,7 +1116,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1083,7 +1126,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1093,7 +1136,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -1138,7 +1181,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1148,7 +1191,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1158,7 +1201,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -1203,7 +1246,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1213,7 +1256,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1223,7 +1266,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>
@@ -1268,7 +1311,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoAddOutline className='icon' aria-hidden='true'/>
+                      <IoAddOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1278,7 +1321,7 @@ function Products() {
                       aria-label="add to cart"
                       title="add to cart"
                     >
-                      <IoBagHandleOutline className='icon' aria-hidden='true'/>
+                      <IoBagHandleOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
 
@@ -1288,7 +1331,7 @@ function Products() {
                       aria-label="add to whishlist"
                       title="add to whishlist"
                     >
-                      <IoHeartOutline className='icon' aria-hidden='true'/>
+                      <IoHeartOutline className="icon" aria-hidden="true" />
                     </button>
                   </li>
                 </ul>

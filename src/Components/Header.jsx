@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import MenuContext from './MenuContext';
 
 // ICONS
 import { IoSearchOutline } from 'react-icons/io5';
@@ -8,9 +9,28 @@ import { IoCartOutline } from 'react-icons/io5';
 import { FiMenu } from 'react-icons/fi';
 
 function Header() {
+  const [isNavbarActive, setIsNavbarActive] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsNavbarActive(!isNavbarActive);
+  };
+
+  const [isScroll, setIsScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScroll(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const { toggleMenu } = useContext(MenuContext);
 
   return (
-    <header className={`header`}>
+    <header className={`header ${isScroll ? 'active' : ''}`}>
       <div className="container">
         <div className="input-wrapper">
           <input
@@ -45,6 +65,7 @@ function Header() {
 
           <button
             className={`header-action-btn`}
+            onClick={toggleMenu}
             aria-label="open menu"
           >
             <FiMenu className="icon" aria-hidden="true" />

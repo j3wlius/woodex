@@ -897,7 +897,7 @@ a.card-meta-text:is(:hover, :focus) {
     border-block-end-color: var(--tan-crayola);
   }
 
-  .header .input-wrapper ion-icon {
+  .header .input-wrapper .icon {
     position: absolute;
     top: 50%;
     right: 0;
