@@ -1,8 +1,11 @@
 import React from 'react';
+
+// ICONS
 import { IoAddOutline } from "react-icons/io5";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { IoHeartOutline } from "react-icons/io5";
 
+// IMAGES
 import productOne from '../images/product-1.jpg'
 import productTwo from '../images/product-2.jpg'
 import productThree from '../images/product-3.jpg'

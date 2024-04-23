@@ -1,4 +1,6 @@
 import React from 'react';
+
+// ICONS
 import { IoSearchOutline } from 'react-icons/io5';
 import { IoPersonOutline } from 'react-icons/io5';
 import { IoMdHeartEmpty } from 'react-icons/io';
@@ -6,8 +8,9 @@ import { IoCartOutline } from 'react-icons/io5';
 import { FiMenu } from 'react-icons/fi';
 
 function Header() {
+
   return (
-    <header className="header" data-header>
+    <header className={`header`}>
       <div className="container">
         <div className="input-wrapper">
           <input
@@ -41,9 +44,8 @@ function Header() {
           </button>
 
           <button
-            className="header-action-btn"
+            className={`header-action-btn`}
             aria-label="open menu"
-            data-nav-toggler
           >
             <FiMenu className="icon" aria-hidden="true" />
           </button>

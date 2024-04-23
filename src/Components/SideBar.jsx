@@ -1,13 +1,14 @@
 import React from 'react';
+
+// ICONS
 import { IoCloseOutline } from 'react-icons/io5';
-import { ImFacebook } from "react-icons/im";
+import { ImFacebook } from 'react-icons/im';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaTumblr } from 'react-icons/fa';
 
 function SideBar() {
   return (
-    <div className="sidebar" data-navbar>
-
+    <div className={`sidebar`}>
       <button className="nav-close-btn">
         <IoCloseOutline className="icon" />
       </button>
@@ -137,7 +138,6 @@ function SideBar() {
           </li>
         </ul>
       </div>
-
     </div>
   );
 }
